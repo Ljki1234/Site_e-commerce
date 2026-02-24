@@ -10,7 +10,7 @@ class GuestMiddleware
     public function handle(Request $request, callable $next)
     {
         if (!empty($_SESSION['user_id'])) {
-            $redirect = ($_SESSION['role'] ?? '') === 'admin' ? base_url('admin') : base_url('dashboard');
+            $redirect = ($_SESSION['role'] ?? '') === 'admin' ? base_url('admin') : base_url();
             header('Location: ' . $redirect);
             exit;
         }

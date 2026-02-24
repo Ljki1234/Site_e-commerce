@@ -130,7 +130,7 @@ class AuthController extends Controller
         $_SESSION['full_name'] = $user['full_name'];
         $_SESSION['role'] = $user['role'];
 
-        $redirect = $user['role'] === 'admin' ? base_url('admin') : base_url('dashboard');
+        $redirect = $user['role'] === 'admin' ? base_url('admin') : base_url();
         $this->redirect($redirect);
     }
 
@@ -198,7 +198,7 @@ class AuthController extends Controller
         $_SESSION['full_name'] = $user['full_name'];
         $_SESSION['role'] = $user['role'];
 
-        $this->redirect(base_url('dashboard'));
+        $this->redirect(base_url());
     }
 
     public function logout(): void
