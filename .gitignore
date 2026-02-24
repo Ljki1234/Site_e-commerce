@@ -1,0 +1,26 @@
+# Composer
+/vendor/
+composer.lock
+
+# Environment & secrets (optionnel : décommenter si vous utilisez .env)
+# .env
+# .env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & cache
+*.log
+/logs/
+/cache/
+
+# Uploads (si vous stockez des fichiers uploadés)
+# /public/uploads/

@@ -1,0 +1,14 @@
+{
+    "name": "webdev-agency/e-commerce",
+    "description": "E-commerce / V Agency",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpmailer/phpmailer": "^6.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
