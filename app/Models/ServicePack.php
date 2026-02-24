@@ -97,6 +97,23 @@ class ServicePack
         return $stmt->execute([$id]);
     }
 
+    /**
+     * Extract support duration in months from pack features (e.g. "1 Month Support", "3 Months Support").
+     */
+    public static function getSupportMonths(array $pack): int
+    {
+        $features = $pack['features'] ?? [];
+        if (is_string($features)) {
+            $features = json_decode($features, true) ?? [];
+        }
+        foreach ((array) $features as $f) {
+            if (preg_match('/^(\d+)\s*Month(s)?\s+Support$/i', trim((string) $f), $m)) {
+                return (int) $m[1];
+            }
+        }
+        return 0;
+    }
+
     public static function slugify(string $text): string
     {
         $text = preg_replace('~[^\pL\d]+~u', '-', $text);

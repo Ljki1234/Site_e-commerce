@@ -67,6 +67,42 @@ class Order
         return $stmt->fetch() ?: null;
     }
 
+    /**
+     * Check if user can order this pack.
+     * Blocks if: same user already has an order for this pack on the same calendar day (duplicate same day),
+     * or the support period of the last order for this pack has not yet expired.
+     */
+    public static function userCanOrderPack(int $userId, int $packId, int $supportMonths): bool
+    {
+        $db = Database::getInstance();
+        $stmt = $db->prepare('
+            SELECT created_at FROM orders
+            WHERE user_id = ? AND pack_id = ?
+            ORDER BY created_at DESC
+            LIMIT 1
+        ');
+        $stmt->execute([$userId, $packId]);
+        $order = $stmt->fetch();
+        if (!$order) {
+            return true;
+        }
+        $created = $order['created_at'];
+        $createdDate = date('Y-m-d', strtotime($created));
+        $today = date('Y-m-d');
+        // Same day: never allow duplicate same pack on the same day
+        if ($createdDate === $today) {
+            return false;
+        }
+        // Support period not expired: block until it ends
+        if ($supportMonths > 0) {
+            $endSupport = strtotime('+' . $supportMonths . ' months', strtotime($created));
+            if (time() < $endSupport) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static function findByUser(int $userId): array
     {
         $db = Database::getInstance();

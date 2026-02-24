@@ -24,6 +24,12 @@ class OrderController extends Controller
             return;
         }
         $userId = (int) $_SESSION['user_id'];
+        $supportMonths = ServicePack::getSupportMonths($pack);
+        if (!Order::userCanOrderPack($userId, $packId, $supportMonths)) {
+            $_SESSION['paypal_error'] = 'Vous avez déjà une commande pour ce pack. Vous pourrez en repasser une après la fin de la période de support (' . $supportMonths . ' mois).';
+            $this->redirect(base_url('packs'));
+            return;
+        }
         $notes = trim((string) $request->input('notes'));
         $requirementsFile = null;
         $file = $request->file('requirements_file');
@@ -96,6 +102,13 @@ class OrderController extends Controller
             }
         } catch (\Throwable $e) {
             $_SESSION['paypal_error'] = $e->getMessage();
+            $this->redirect(base_url('packs'));
+            return;
+        }
+        $pack = ServicePack::findById((int) $pending['pack_id']);
+        $supportMonths = $pack ? ServicePack::getSupportMonths($pack) : 0;
+        if (!Order::userCanOrderPack((int) $pending['user_id'], (int) $pending['pack_id'], $supportMonths)) {
+            $_SESSION['paypal_error'] = 'Vous avez déjà une commande pour ce pack. Vous pourrez en repasser une après la fin de la période de support.';
             $this->redirect(base_url('packs'));
             return;
         }
