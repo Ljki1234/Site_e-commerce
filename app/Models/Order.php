@@ -131,10 +131,8 @@ class Order
             $params[] = $status;
         }
         $sql .= ' ORDER BY o.created_at DESC';
-        $stmt = $params ? $db->prepare($sql) : $db->query($sql);
-        if ($params) {
-            $stmt->execute($params);
-        }
+        $stmt = $db->prepare($sql);
+        $stmt->execute($params);
         return $stmt->fetchAll();
     }
 
@@ -165,7 +163,8 @@ class Order
             $stmt = $db->prepare('SELECT COUNT(*) FROM orders WHERE status = ?');
             $stmt->execute([$status]);
         } else {
-            $stmt = $db->query('SELECT COUNT(*) FROM orders');
+            $stmt = $db->prepare('SELECT COUNT(*) FROM orders');
+            $stmt->execute();
         }
         return (int) $stmt->fetchColumn();
     }
@@ -173,20 +172,24 @@ class Order
     public static function totalRevenue(): float
     {
         $db = Database::getInstance();
-        $stmt = $db->query('SELECT COALESCE(SUM(total_amount), 0) FROM orders WHERE status = "completed"');
+        $stmt = $db->prepare('SELECT COALESCE(SUM(total_amount), 0) FROM orders WHERE status = ?');
+        $stmt->execute(['completed']);
         return (float) $stmt->fetchColumn();
     }
 
     public static function monthlyRevenue(int $months = 6): array
     {
         $db = Database::getInstance();
-        $stmt = $db->query("
+        $months = max(1, (int) $months);
+        $cutoffDate = date('Y-m-d', strtotime('-' . $months . ' months'));
+        $stmt = $db->prepare("
             SELECT DATE_FORMAT(created_at, '%Y-%m') AS month, SUM(total_amount) AS total
             FROM orders
-            WHERE status = 'completed' AND created_at >= DATE_SUB(CURDATE(), INTERVAL {$months} MONTH)
+            WHERE status = ? AND created_at >= ?
             GROUP BY DATE_FORMAT(created_at, '%Y-%m')
             ORDER BY month ASC
         ");
+        $stmt->execute(['completed', $cutoffDate]);
         return $stmt->fetchAll();
     }
 }

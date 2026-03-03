@@ -4,6 +4,12 @@ $sent = isset($_GET['sent']);
 ?>
 <div class="pt-24 pb-16 px-4 min-h-screen bg-gradient-to-br from-sky-50 via-white to-indigo-50">
     <div class="max-w-7xl mx-auto">
+        <?php if (isset($_GET['recaptcha_debug']) && $_GET['recaptcha_debug'] === '1'): ?>
+        <div class="mb-6 p-4 rounded-xl bg-slate-100 border border-slate-300 text-sm">
+            <strong>reCAPTCHA debug</strong> (remove when done – see RECAPTCHA.md)
+            <pre class="mt-2 overflow-auto"><?php print_r(function_exists('recaptcha_debug') ? recaptcha_debug() : ['recaptcha_debug not available']); ?></pre>
+        </div>
+        <?php endif; ?>
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <div class="order-2 lg:order-1">
                 <span class="inline-block text-sm font-semibold text-rose-500 uppercase tracking-widest mb-3">Contact now</span>
@@ -13,7 +19,14 @@ $sent = isset($_GET['sent']);
                     Thank you. Your message has been sent. We'll be in touch soon.
                 </div>
                 <?php endif; ?>
-                <form action="<?= base_url('contact') ?>" method="POST" class="mt-8 space-y-5">
+                <?php if (!empty($errors['recaptcha'])): ?>
+                <div class="mt-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800">
+                    <?= htmlspecialchars($errors['recaptcha']) ?>
+                </div>
+                <?php endif; ?>
+                <form action="<?= base_url('contact') ?>" method="POST" class="mt-8 space-y-5" data-recaptcha-action="contact">
+                    <?= csrf_field() ?>
+                    <?= recaptcha_field() ?>
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
                             <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>

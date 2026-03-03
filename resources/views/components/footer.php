@@ -103,9 +103,5 @@
             </div>
             <p class="text-sm" style="color: #6b7280;">&copy; <?= date('Y') ?> AtlasTech Solutions. All rights reserved.</p>
         </div>
-        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="group fixed bottom-6 right-6 w-12 h-14 rounded-2xl flex items-center justify-center z-40 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-sky-400/30 active:scale-95" style="background: linear-gradient(145deg, rgba(56,189,248,0.95) 0%, rgba(14,165,233,0.9) 100%); box-shadow: 0 8px 32px rgba(56,189,248,0.4), 0 0 0 1px rgba(255,255,255,0.25) inset; backdrop-filter: blur(12px);" aria-label="Scroll to top">
-            <span class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            <svg class="w-5 h-5 text-white relative z-10 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-        </a>
     </div>
 </footer>

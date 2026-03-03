@@ -13,9 +13,16 @@ $dsn = sprintf(
     $c['dbname'] ?? 'webdev_agency',
     $c['charset'] ?? 'utf8mb4'
 );
-$pdo = new PDO($dsn, $c['user'] ?? 'root', $c['password'] ?? '', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-]);
+try {
+    $pdo = new PDO($dsn, $c['user'] ?? '', $c['password'] ?? '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::MYSQL_ATTR_MULTI_STATEMENTS => false,
+    ]);
+} catch (PDOException $e) {
+    fwrite(STDERR, 'Failed to connect to database: ' . $e->getMessage() . PHP_EOL);
+    exit(1);
+}
 
 $sql = "CREATE TABLE IF NOT EXISTS password_reset_codes (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

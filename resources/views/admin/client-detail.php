@@ -30,6 +30,7 @@ $orders = $orders ?? [];
                         <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Status</dt>
                         <dd class="mt-1">
                             <form action="<?= base_url('admin/clients/' . $client['id'] . '/status') ?>" method="POST" class="inline">
+                                <?= csrf_field() ?>
                                 <select name="status" onchange="this.form.submit()" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-500 transition">
                                     <option value="lead" <?= ($client['status'] ?? '') === 'lead' ? 'selected' : '' ?>>Lead</option>
                                     <option value="active" <?= ($client['status'] ?? '') === 'active' ? 'selected' : '' ?>>Active</option>
@@ -50,6 +51,7 @@ $orders = $orders ?? [];
             </div>
             <div class="p-6">
                 <form action="<?= base_url('admin/clients/' . $client['id'] . '/note') ?>" method="POST" class="space-y-3">
+                    <?= csrf_field() ?>
                     <textarea name="note" rows="3" placeholder="Internal note..."
                               class="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-500 transition resize-y" required></textarea>
                     <button type="submit" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-gradient-to-r from-sky-500 to-sky-600 shadow-lg shadow-sky-500/30 hover:shadow-sky-500/40 transition-all">

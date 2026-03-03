@@ -18,9 +18,42 @@ class AuthController extends Controller
 
     public function login(Request $request): void
     {
+        $errors = [];
+        if (recaptcha_enabled()) {
+            $token = (string) $request->input('g-recaptcha-response');
+            $result = recaptcha_verify($token);
+            if (!$result['success']) {
+                $errors['recaptcha'] = 'Security check failed. Please try again.';
+                $this->view('auth.login', [
+                    'pageTitle' => 'Login',
+                    'navbar' => true,
+                    'footer' => true,
+                    'errors' => $errors,
+                    'old' => ['email' => (string) $request->input('email')],
+                ]);
+                return;
+            }
+        }
+
         $email = trim((string) $request->input('email'));
         $password = (string) $request->input('password');
-        $errors = [];
+
+        // Simple rate limiting: block after 5 failed attempts for 15 minutes per email+IP
+        $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+        $key = strtolower($email) . '|' . $ip;
+        $attempts = $_SESSION['login_attempts'][$key] ?? ['count' => 0, 'blocked_until' => 0];
+        $now = time();
+        if ($attempts['blocked_until'] > $now) {
+            $errors['email'] = 'Too many login attempts. Please try again later.';
+            $this->view('auth.login', [
+                'pageTitle' => 'Login',
+                'navbar' => true,
+                'footer' => true,
+                'errors' => $errors,
+                'old' => ['email' => $email],
+            ]);
+            return;
+        }
 
         if ($email === '') {
             $errors['email'] = 'Email is required.';
@@ -42,6 +75,12 @@ class AuthController extends Controller
 
         $user = User::findByEmail($email);
         if (!$user || !password_verify($password, $user['password'])) {
+            $attempts['count']++;
+            if ($attempts['count'] >= 5) {
+                $attempts['blocked_until'] = $now + 900; // 15 minutes
+                error_log(sprintf('Suspicious login activity for %s from IP %s', $email, $ip));
+            }
+            $_SESSION['login_attempts'][$key] = $attempts;
             $errors['email'] = 'Invalid email or password.';
             $this->view('auth.login', [
                 'pageTitle' => 'Login',
@@ -52,6 +91,9 @@ class AuthController extends Controller
             ]);
             return;
         }
+
+        // Successful password check: reset attempts
+        unset($_SESSION['login_attempts'][$key]);
 
         // MFA: send 6-digit code by email, then require verification
         $code = LoginVerificationCode::create($email, 10);
@@ -125,6 +167,7 @@ class AuthController extends Controller
         }
 
         unset($_SESSION['mfa_pending_email']);
+        session_regenerate_id(true);
         $_SESSION['user_id'] = (int) $user['id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['full_name'] = $user['full_name'];
@@ -141,13 +184,29 @@ class AuthController extends Controller
 
     public function register(Request $request): void
     {
+        $errors = [];
+        if (recaptcha_enabled()) {
+            $token = (string) $request->input('g-recaptcha-response');
+            $result = recaptcha_verify($token);
+            if (!$result['success']) {
+                $errors['recaptcha'] = 'Security check failed. Please try again.';
+                $this->view('auth.register', [
+                    'pageTitle' => 'Register',
+                    'navbar' => true,
+                    'footer' => true,
+                    'errors' => $errors,
+                    'old' => $request->all(),
+                ]);
+                return;
+            }
+        }
+
         $email = trim((string) $request->input('email'));
         $password = (string) $request->input('password');
         $password_confirmation = (string) $request->input('password_confirmation');
         $full_name = trim((string) $request->input('full_name'));
         $company = trim((string) $request->input('company'));
         $phone = trim((string) $request->input('phone'));
-        $errors = [];
 
         if ($full_name === '') {
             $errors['full_name'] = 'Full name is required.';
@@ -193,6 +252,7 @@ class AuthController extends Controller
         ]);
 
         $user = User::findByEmail($email);
+        session_regenerate_id(true);
         $_SESSION['user_id'] = (int) $user['id'];
         $_SESSION['email'] = $user['email'];
         $_SESSION['full_name'] = $user['full_name'];
@@ -219,8 +279,24 @@ class AuthController extends Controller
 
     public function sendResetCode(Request $request): void
     {
-        $email = trim((string) $request->input('email'));
         $errors = [];
+        if (recaptcha_enabled()) {
+            $token = (string) $request->input('g-recaptcha-response');
+            $result = recaptcha_verify($token);
+            if (!$result['success']) {
+                $errors['recaptcha'] = 'Security check failed. Please try again.';
+                $this->view('auth.forgot-password', [
+                    'pageTitle' => 'Forgot password',
+                    'navbar' => true,
+                    'footer' => true,
+                    'errors' => $errors,
+                    'old' => ['email' => (string) $request->input('email')],
+                ]);
+                return;
+            }
+        }
+
+        $email = trim((string) $request->input('email'));
         if ($email === '') {
             $errors['email'] = 'Email is required.';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -275,6 +351,24 @@ class AuthController extends Controller
         if ($email === '') {
             $this->redirect(base_url('forgot-password'));
             return;
+        }
+
+        $errors = [];
+        if (recaptcha_enabled()) {
+            $token = (string) $request->input('g-recaptcha-response');
+            $result = recaptcha_verify($token);
+            if (!$result['success']) {
+                $errors['recaptcha'] = 'Security check failed. Please try again.';
+                $this->view('auth.reset-password', [
+                    'pageTitle' => 'Reset password',
+                    'navbar' => true,
+                    'footer' => true,
+                    'email' => $email,
+                    'errors' => $errors,
+                    'old' => ['code' => (string) $request->input('code')],
+                ]);
+                return;
+            }
         }
 
         $code = trim((string) $request->input('code'));

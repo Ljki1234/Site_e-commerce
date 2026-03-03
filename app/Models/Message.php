@@ -24,7 +24,8 @@ class Message
     public static function all(): array
     {
         $db = Database::getInstance();
-        $stmt = $db->query('SELECT * FROM messages ORDER BY created_at DESC');
+        $stmt = $db->prepare('SELECT * FROM messages ORDER BY created_at DESC');
+        $stmt->execute();
         return $stmt->fetchAll();
     }
 }

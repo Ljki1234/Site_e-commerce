@@ -77,10 +77,10 @@ $completed = count(array_filter($orders, fn($o) => $o['status'] === 'completed')
     <div class="rounded-2xl bg-gradient-to-r from-primary-500 via-primary-400 to-cyan-400 p-6 lg:p-8 shadow-xl shadow-primary-500/25 text-white">
         <div class="flex flex-wrap items-center justify-between gap-4">
             <div>
-                <h2 class="text-xl font-bold">Ready for a new project?</h2>
-                <p class="mt-1 text-primary-100 text-sm">Browse our packs and place an order in a few clicks.</p>
+                <h2 class="text-xl font-bold text-sky-600">Ready for a new project?</h2>
+                <p class="mt-1 text-sky-600 text-sm">Browse our packs and place an order in a few clicks.</p>
             </div>
-            <a href="<?= base_url('packs') ?>" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white text-primary-600 shadow-lg hover:bg-primary-50 hover:scale-105 transition-all">
+            <a href="<?= base_url('packs') ?>" class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold bg-white text-slate-800 shadow-[0_12px_30px_rgba(15,23,42,0.10)] hover:shadow-[0_18px_45px_rgba(15,23,42,0.16)] hover:-translate-y-0.5 transition-all">
                 Browse packs
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>

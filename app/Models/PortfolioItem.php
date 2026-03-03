@@ -15,7 +15,8 @@ class PortfolioItem
             $sql .= ' WHERE is_active = 1';
         }
         $sql .= ' ORDER BY sort_order ASC, id ASC';
-        $stmt = $db->query($sql);
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
         return $stmt->fetchAll();
     }
 }

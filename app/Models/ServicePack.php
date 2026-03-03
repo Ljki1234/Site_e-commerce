@@ -16,7 +16,8 @@ class ServicePack
             $sql .= ' WHERE is_active = 1';
         }
         $sql .= ' ORDER BY sort_order ASC, id ASC';
-        $stmt = $db->query($sql);
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
         $rows = $stmt->fetchAll();
         foreach ($rows as &$r) {
             if (!empty($r['features'])) {

@@ -60,6 +60,7 @@ $invoices = $invoices ?? [];
                 <h2 class="text-lg font-bold text-[#0f172a]">Update order</h2>
             </div>
             <form action="<?= base_url('admin/orders/' . $order['id']) ?>" method="POST" enctype="multipart/form-data" class="p-6 space-y-5">
+                <?= csrf_field() ?>
                 <div>
                     <label class="block text-sm font-semibold text-[#1e293b] mb-2">Status</label>
                     <select name="status" class="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-500 transition">

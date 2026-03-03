@@ -10,6 +10,11 @@ $codeSent = $codeSent ?? false;
         <div class="relative max-w-md mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl border-2 border-slate-200/80 shadow-xl shadow-slate-200/50 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-slate-300/30 hover:border-rose-100">
                 <div class="p-8 lg:p-10">
+                    <?php if (!empty($errors['recaptcha'])): ?>
+                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200/80">
+                        <p class="text-sm font-medium text-rose-800"><?= htmlspecialchars($errors['recaptcha']) ?></p>
+                    </div>
+                    <?php endif; ?>
                     <?php if ($codeSent): ?>
                     <div class="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80">
                         <p class="text-sm font-medium text-emerald-800">A 6-digit code has been sent to <strong><?= htmlspecialchars($email) ?></strong>. Check your inbox and enter it below.</p>
@@ -17,7 +22,9 @@ $codeSent = $codeSent ?? false;
                     <?php endif; ?>
                     <h1 class="text-xl font-bold text-[#1e293b] mb-2">Reset password</h1>
                     <p class="text-sm text-slate-600 mb-6">Enter the 6-digit code from your email and choose a new password.</p>
-                    <form action="<?= base_url('reset-password') ?>" method="POST" class="space-y-5">
+                    <form action="<?= base_url('reset-password') ?>" method="POST" class="space-y-5" data-recaptcha-action="reset_password">
+                        <?= csrf_field() ?>
+                        <?= recaptcha_field() ?>
                         <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
                         <div>
                             <label for="code" class="block text-sm font-semibold text-[#1e293b] mb-2">6-digit code</label>

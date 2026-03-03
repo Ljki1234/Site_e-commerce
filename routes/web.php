@@ -17,6 +17,7 @@ return function (Router $r): void {
     $r->get('/services', [PageController::class, 'services']);
     $r->get('/packs', [PageController::class, 'packs']);
     $r->get('/portfolio', [PageController::class, 'portfolio']);
+    $r->get('/team', [PageController::class, 'team']);
     $r->get('/contact', [PageController::class, 'contact']);
     $r->post('/contact', [PageController::class, 'submitContact']);
 

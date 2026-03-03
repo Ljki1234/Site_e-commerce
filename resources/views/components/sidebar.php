@@ -14,7 +14,7 @@ $icons = [
 ?>
 <aside class="w-64 min-h-screen flex-shrink-0 bg-white border-r border-slate-200/80 shadow-lg flex flex-col">
     <div class="p-5 border-b border-slate-100">
-        <a href="<?= $homeUrl ?>" class="text-lg font-bold tracking-tight bg-gradient-to-r from-sky-500 to-sky-600 bg-clip-text text-transparent"><?= $brand ?? 'AtlasTech Solutions' ?></a>
+        <a href="<?= htmlspecialchars($homeUrl) ?>" class="text-lg font-bold tracking-tight bg-gradient-to-r from-sky-500 to-sky-600 bg-clip-text text-transparent"><?= htmlspecialchars($brand ?? 'AtlasTech Solutions') ?></a>
     </div>
     <nav class="p-3 flex-1 overflow-y-auto">
         <!-- OVERVIEW -->

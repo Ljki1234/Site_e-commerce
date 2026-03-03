@@ -15,6 +15,7 @@ $old = $old ?? [];
                     <h1 class="text-xl font-bold text-[#1e293b] mb-2">Two-factor verification</h1>
                     <p class="text-sm text-slate-600 mb-6">Enter the 6-digit code from your email. The code is valid for 10 minutes.</p>
                     <form action="<?= base_url('login/verify') ?>" method="POST" class="space-y-5">
+                        <?= csrf_field() ?>
                         <div>
                             <label for="code" class="block text-sm font-semibold text-[#1e293b] mb-2">6-digit code</label>
                             <input type="text" id="code" name="code" value="<?= htmlspecialchars($old['code'] ?? '') ?>"

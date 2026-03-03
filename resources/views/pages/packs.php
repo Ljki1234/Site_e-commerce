@@ -17,6 +17,11 @@ $packs = $packs ?? [];
     <section class="relative py-12 lg:py-16" style="background-color: #f6f6f7; background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 24px 24px;">
         <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(233,84,125,0.06) 0%, transparent 60%);"></div>
         <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <?php if (!empty($_SESSION['order_error'])): $err = $_SESSION['order_error']; unset($_SESSION['order_error']); ?>
+            <div class="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm">
+                <?= htmlspecialchars($err) ?>
+            </div>
+            <?php endif; ?>
             <?php if (!empty($_SESSION['paypal_error'])): $err = $_SESSION['paypal_error']; unset($_SESSION['paypal_error']); ?>
             <div class="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm">
                 <?= htmlspecialchars($err) ?>
@@ -62,7 +67,9 @@ $packs = $packs ?? [];
                         </ul>
 
                         <?php $user = auth(); if ($user): ?>
-                        <form action="<?= base_url('order/initiate') ?>" method="POST" class="mt-6 space-y-4" enctype="multipart/form-data">
+                        <form action="<?= base_url('order/initiate') ?>" method="POST" class="mt-6 space-y-4" enctype="multipart/form-data" data-recaptcha-action="order">
+                            <?= csrf_field() ?>
+                            <?= recaptcha_field() ?>
                             <input type="hidden" name="pack_id" value="<?= (int)$pack['id'] ?>">
                             <div class="space-y-2 text-left">
                                 <label class="block text-sm font-medium text-slate-700">Project notes (optional)</label>

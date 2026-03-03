@@ -27,6 +27,7 @@
                 <td class="px-6 py-4 text-right space-x-3">
                     <a href="<?= base_url('admin/packs/' . $p['id']) ?>" class="text-sm font-semibold text-sky-600 hover:text-sky-700 transition-colors">Edit</a>
                     <form action="<?= base_url('admin/packs/delete/' . $p['id']) ?>" method="POST" class="inline" onsubmit="return confirm('Delete this pack?');">
+                        <?= csrf_field() ?>
                         <button type="submit" class="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors">Delete</button>
                     </form>
                 </td>

@@ -15,6 +15,7 @@ $featuresStr = is_array($p['features'] ?? null) ? implode("\n", $p['features']) 
             <h2 class="text-lg font-bold text-[#0f172a]"><?= $isEdit ? 'Edit pack' : 'New pack' ?></h2>
         </div>
         <form action="<?= $isEdit ? base_url('admin/packs/save/' . $p['id']) : base_url('admin/packs/save') ?>" method="POST" class="p-6 space-y-5">
+            <?= csrf_field() ?>
             <div>
                 <label for="name" class="block text-sm font-semibold text-[#1e293b] mb-2">Name</label>
                 <input type="text" id="name" name="name" value="<?= htmlspecialchars($p['name'] ?? '') ?>"

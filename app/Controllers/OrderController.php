@@ -17,6 +17,16 @@ class OrderController extends Controller
      */
     public function initiate(Request $request): void
     {
+        if (recaptcha_enabled()) {
+            $token = (string) $request->input('g-recaptcha-response');
+            $result = recaptcha_verify($token);
+            if (!$result['success']) {
+                $_SESSION['order_error'] = 'Security check failed. Please try again.';
+                $this->redirect(base_url('packs'));
+                return;
+            }
+        }
+
         $packId = (int) $request->input('pack_id');
         $pack = ServicePack::findById($packId);
         if (!$pack || !$pack['is_active']) {

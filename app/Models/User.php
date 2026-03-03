@@ -76,7 +76,8 @@ class User
     public static function allClients(): array
     {
         $db = Database::getInstance();
-        $stmt = $db->query('SELECT * FROM users WHERE role = "client" ORDER BY created_at DESC');
+        $stmt = $db->prepare('SELECT * FROM users WHERE role = ? ORDER BY created_at DESC');
+        $stmt->execute(['client']);
         return $stmt->fetchAll();
     }
 

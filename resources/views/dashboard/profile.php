@@ -21,7 +21,7 @@ $updated = isset($_GET['updated']);
         <div class="px-6 lg:px-8 pb-6 -mt-12 relative">
             <div class="flex flex-wrap items-end justify-between gap-4">
                 <div class="flex items-end gap-4">
-                    <div class="w-24 h-24 rounded-full bg-white border-4 border-white shadow-lg flex items-center justify-center text-primary-600 font-bold text-3xl">
+                    <div class="w-24 h-24 rounded-full bg-sky-500 border-4 border-white shadow-lg flex items-center justify-center text-white font-bold text-3xl">
                         <?= strtoupper(mb_substr($user['full_name'] ?? 'U', 0, 1)) ?>
                     </div>
                     <div class="pb-1">
@@ -29,7 +29,7 @@ $updated = isset($_GET['updated']);
                         <p class="text-slate-500 text-sm mt-0.5"><?= htmlspecialchars($user['email'] ?? '') ?></p>
                     </div>
                 </div>
-                <a href="#form" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-primary-500 hover:bg-primary-600 shadow-lg shadow-primary-500/30 transition-all">
+                <a href="#form" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-sky-500 hover:bg-sky-600 shadow-lg shadow-sky-500/30 transition-all">
                     Edit
                 </a>
             </div>
@@ -37,6 +37,7 @@ $updated = isset($_GET['updated']);
 
         <!-- Form: two columns + email block -->
         <form id="form" action="<?= base_url('dashboard/profile') ?>" method="POST" class="px-6 lg:px-8 pb-8">
+            <?= csrf_field() ?>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="full_name" class="block text-sm font-bold text-[#0f172a] mb-2">Full Name</label>
@@ -73,11 +74,11 @@ $updated = isset($_GET['updated']);
             </div>
 
             <div class="flex flex-wrap gap-3 mt-8">
-                <button type="submit" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-primary-500 hover:bg-primary-600 shadow-lg shadow-primary-500/30 hover:shadow-primary-500/40 transition-all">
+                <button type="submit" class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-semibold text-white bg-sky-500 hover:bg-sky-600 shadow-lg shadow-sky-500/30 hover:shadow-sky-500/40 hover:-translate-y-0.5 transition-all">
                     Save changes
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </button>
-                <a href="<?= base_url('dashboard') ?>" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors">Cancel</a>
+                <a href="<?= base_url('dashboard') ?>" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border-2 border-sky-300 text-sky-700 hover:bg-sky-50 transition-colors">Cancel</a>
             </div>
         </form>
     </div>

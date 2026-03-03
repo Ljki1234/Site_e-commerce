@@ -16,12 +16,19 @@ $resetSuccess = isset($_GET['reset']) && $_GET['reset'] === '1';
                         <p class="text-sm font-medium text-emerald-800">Your password has been changed. You can now sign in with your new password.</p>
                     </div>
                     <?php endif; ?>
+                    <?php if (!empty($errors['recaptcha'])): ?>
+                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200/80">
+                        <p class="text-sm font-medium text-rose-800"><?= htmlspecialchars($errors['recaptcha']) ?></p>
+                    </div>
+                    <?php endif; ?>
                     <?php if (!empty($errors['email']) && (strpos($errors['email'] ?? '', 'Invalid') !== false)): ?>
                     <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200/80">
                         <p class="text-sm font-medium text-rose-800"><?= htmlspecialchars($errors['email']) ?></p>
                     </div>
                     <?php endif; ?>
-                    <form action="<?= base_url('login') ?>" method="POST" class="space-y-5">
+                    <form action="<?= base_url('login') ?>" method="POST" class="space-y-5" data-recaptcha-action="login">
+                        <?= csrf_field() ?>
+                        <?= recaptcha_field() ?>
                         <div>
                             <label for="email" class="block text-sm font-semibold text-[#1e293b] mb-2">Email</label>
                             <input type="email" id="email" name="email" value="<?= htmlspecialchars($old['email'] ?? '') ?>"

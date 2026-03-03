@@ -174,7 +174,9 @@ $portfolio = $portfolio ?? [];
             <div class="flex flex-wrap justify-center items-center gap-6 lg:gap-8 mb-12 lg:mb-16">
                 <div class="flex items-center gap-5 lg:gap-6">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M264 112L376 112C380.4 112 384 115.6 384 120L384 160L256 160L256 120C256 115.6 259.6 112 264 112zM208 120L208 160L128 160C92.7 160 64 188.7 64 224L64 320L369 320C402.8 290.1 447.3 272 496 272C524.6 272 551.6 278.2 576 289.4L576 224C576 188.7 547.3 160 512 160L432 160L432 120C432 89.1 406.9 64 376 64L264 64C233.1 64 208 89.1 208 120zM288 416C270.3 416 256 401.7 256 384L256 368L64 368L64 480C64 515.3 92.7 544 128 544L321.4 544C310.2 519.6 304 492.6 304 464C304 447.4 306.1 431.3 310 416L288 416zM640 464C640 384.5 575.5 320 496 320C416.5 320 352 384.5 352 464C352 543.5 416.5 608 496 608C575.5 608 640 543.5 640 464zM496 384C504.8 384 512 391.2 512 400L512 448L544 448C552.8 448 560 455.2 560 464C560 472.8 552.8 480 544 480L496 480C487.2 480 480 472.8 480 464L480 400C480 391.2 487.2 384 496 384z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">15+</p>
@@ -183,7 +185,9 @@ $portfolio = $portfolio ?? [];
                 </div>
                 <div class="flex items-center gap-5 lg:gap-6">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M320 80C377.4 80 424 126.6 424 184C424 241.4 377.4 288 320 288C262.6 288 216 241.4 216 184C216 126.6 262.6 80 320 80zM96 152C135.8 152 168 184.2 168 224C168 263.8 135.8 296 96 296C56.2 296 24 263.8 24 224C24 184.2 56.2 152 96 152zM0 480C0 409.3 57.3 352 128 352C140.8 352 153.2 353.9 164.9 357.4C132 394.2 112 442.8 112 496L112 512C112 523.4 114.4 534.2 118.7 544L32 544C14.3 544 0 529.7 0 512L0 480zM521.3 544C525.6 534.2 528 523.4 528 512L528 496C528 442.8 508 394.2 475.1 357.4C486.8 353.9 499.2 352 512 352C582.7 352 640 409.3 640 480L640 512C640 529.7 625.7 544 608 544L521.3 544zM472 224C472 184.2 504.2 152 544 152C583.8 152 616 184.2 616 224C616 263.8 583.8 296 544 296C504.2 296 472 263.8 472 224zM160 496C160 407.6 231.6 336 320 336C408.4 336 480 407.6 480 496L480 512C480 529.7 465.7 544 448 544L192 544C174.3 544 160 529.7 160 512L160 496z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">80+</p>
@@ -194,7 +198,9 @@ $portfolio = $portfolio ?? [];
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
                 <div class="flex items-center gap-4 lg:gap-5">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M273 151.1L288 171.8L303 151.1C328 116.5 368.2 96 410.9 96C484.4 96 544 155.6 544 229.1L544 231.7C544 249.3 540.6 267.3 534.5 285.4C512.7 276.8 488.9 272 464 272C358 272 272 358 272 464C272 492.5 278.2 519.6 289.4 544C288.9 544 288.5 544 288 544C272.5 544 257.2 539.4 244.9 529.9C171.9 474.2 32 343.9 32 231.7L32 229.1C32 155.6 91.6 96 165.1 96C207.8 96 248 116.5 273 151.1zM320 464C320 384.5 384.5 320 464 320C543.5 320 608 384.5 608 464C608 543.5 543.5 608 464 608C384.5 608 320 543.5 320 464zM521.4 403.1C514.3 397.9 504.2 399.5 499 406.6L446 479.5L419.2 452.7C413 446.5 402.8 446.5 396.6 452.7C390.4 458.9 390.4 469.1 396.6 475.3L436.6 515.3C439.9 518.6 444.5 520.3 449.2 519.9C453.9 519.5 458.1 517.1 460.9 513.4L524.9 425.4C530.1 418.3 528.5 408.2 521.4 403.1z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">450</p>
@@ -203,7 +209,9 @@ $portfolio = $portfolio ?? [];
                 </div>
                 <div class="flex items-center gap-4 lg:gap-5">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M197.8 100.3C208.7 107.9 211.3 122.9 203.7 133.7L147.7 213.7C143.6 219.5 137.2 223.2 130.1 223.8C123 224.4 116 222 111 217L71 177C61.7 167.6 61.7 152.4 71 143C80.3 133.6 95.6 133.7 105 143L124.8 162.8L164.4 106.2C172 95.3 187 92.7 197.8 100.3zM197.8 260.3C208.7 267.9 211.3 282.9 203.7 293.7L147.7 373.7C143.6 379.5 137.2 383.2 130.1 383.8C123 384.4 116 382 111 377L71 337C61.6 327.6 61.6 312.4 71 303.1C80.4 293.8 95.6 293.7 104.9 303.1L124.7 322.9L164.3 266.3C171.9 255.4 186.9 252.8 197.7 260.4zM288 160C288 142.3 302.3 128 320 128L544 128C561.7 128 576 142.3 576 160C576 177.7 561.7 192 544 192L320 192C302.3 192 288 177.7 288 160zM288 320C288 302.3 302.3 288 320 288L544 288C561.7 288 576 302.3 576 320C576 337.7 561.7 352 544 352L320 352C302.3 352 288 337.7 288 320zM224 480C224 462.3 238.3 448 256 448L544 448C561.7 448 576 462.3 576 480C576 497.7 561.7 512 544 512L256 512C238.3 512 224 497.7 224 480zM128 440C150.1 440 168 457.9 168 480C168 502.1 150.1 520 128 520C105.9 520 88 502.1 88 480C88 457.9 105.9 440 128 440z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">150+</p>
@@ -212,7 +220,9 @@ $portfolio = $portfolio ?? [];
                 </div>
                 <div class="flex items-center gap-4 lg:gap-5">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">8+</p>
@@ -221,7 +231,9 @@ $portfolio = $portfolio ?? [];
                 </div>
                 <div class="flex items-center gap-4 lg:gap-5">
                     <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-[1.25rem] bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)] flex items-center justify-center p-3" style="border-radius: 1.25rem 1.25rem 1rem 1.5rem;">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[#1a202c]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor" aria-hidden="true">
+                            <path d="M320 128C241 128 175.3 185.3 162.3 260.7C171.6 257.7 181.6 256 192 256L208 256C234.5 256 256 277.5 256 304L256 400C256 426.5 234.5 448 208 448L192 448C139 448 96 405 96 352L96 288C96 164.3 196.3 64 320 64C443.7 64 544 164.3 544 288L544 456.1C544 522.4 490.2 576.1 423.9 576.1L336 576L304 576C277.5 576 256 554.5 256 528C256 501.5 277.5 480 304 480L336 480C362.5 480 384 501.5 384 528L384 528L424 528C463.8 528 496 495.8 496 456L496 435.1C481.9 443.3 465.5 447.9 448 447.9L432 447.9C405.5 447.9 384 426.4 384 399.9L384 303.9C384 277.4 405.5 255.9 432 255.9L448 255.9C458.4 255.9 468.3 257.5 477.7 260.6C464.7 185.3 399.1 127.9 320 127.9z"/>
+                        </svg>
                     </div>
                     <div>
                         <p class="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style="color: #1a202c;">24/7</p>
@@ -314,65 +326,98 @@ $portfolio = $portfolio ?? [];
         </div>
     </section>
 
-    <!-- Clients Testimonial (style exact image: 2 colonnes, photo circulaire, vagues bleu-gris, dots rose) -->
-    <section class="py-8 lg:py-10 relative overflow-hidden bg-white">
-        <!-- Motifs ondulés bleu-gris à gauche (comme l'image) -->
+    <!-- Clients Testimonial -->
+    <section id="testimonials-section" class="py-12 lg:py-16 relative overflow-hidden bg-white">
+        <!-- Motifs ondulés bleu-gris à gauche -->
         <div class="absolute bottom-0 left-0 w-80 h-80 opacity-[0.08]" aria-hidden="true" style="color: #94a3b8;">
-            <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M0 30 Q30 10 60 30 T120 30 T180 30 M0 60 Q30 40 60 60 T120 60 T180 60 M0 90 Q30 70 60 90 T120 90 T180 90 M0 120 Q30 100 60 120 T120 120 T180 120 M0 150 Q30 130 60 150 T120 150 T180 150 M0 180 Q30 160 60 180 T120 180 T180 180"/></svg>
+            <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="0.6">
+                <path d="M0 30 Q30 10 60 30 T120 30 T180 30
+                         M0 60 Q30 40 60 60 T120 60 T180 60
+                         M0 90 Q30 70 60 90 T120 90 T180 90
+                         M0 120 Q30 100 60 120 T120 120 T180 120
+                         M0 150 Q30 130 60 150 T120 150 T180 150
+                         M0 180 Q30 160 60 180 T120 180 T180 180" />
+            </svg>
         </div>
-        <div class="absolute top-0 left-0 w-64 h-64 opacity-[0.06]" aria-hidden="true" style="color: #94a3b8;">
-            <svg viewBox="0 0 200 200" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M0 50 Q40 30 80 50 T160 50 M0 90 Q40 70 80 90 T160 90 M0 130 Q40 110 80 130 T160 130"/></svg>
-        </div>
-        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ current: 0, total: 3, startAuto() { setInterval(() => { this.current = (this.current + 1) % this.total }, 3000) } }" x-init="startAuto()">
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-                <!-- Colonne gauche : titre (style exact) -->
+                <!-- Colonne gauche : titre -->
                 <div class="lg:col-span-5">
-                    <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] mb-2" style="color: #E91E63;">Clients Testimonial</span>
-                    <h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-tight text-black">What our clients say<br>about our Company</h2>
+                    <span class="inline-block text-xs font-bold uppercase tracking-[0.25em] mb-2" style="color: #E91E63;">
+                        Clients Testimonial
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-tight text-black">
+                        What our clients say<br>about our Company.
+                    </h2>
                 </div>
-                <!-- Colonne droite : slider horizontal (décalé un peu à droite) -->
+
+                <!-- Colonne droite : slider simple en JS vanilla -->
                 <div class="lg:col-span-7 relative pl-6 lg:pl-10">
-                    <div class="relative overflow-hidden min-h-[180px]">
-                        <!-- Slides en position absolue pour glissement horizontal (pas de saut vertical) -->
-                        <!-- Slide 1 -->
-                        <div x-show="current === 0" x-transition:enter="transition ease-out duration-400" x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 -translate-x-full" class="absolute inset-0 text-left w-full pr-4" style="display: none;">
-                            <p class="leading-relaxed text-base lg:text-lg" style="color: #333333;">AtlasTech Solutions delivered our new site on time and within budget. The team was responsive and the result exceeded our expectations.</p>
+                    <div class="relative min-h-[200px]">
+                        <!-- Témoignage 1 -->
+                        <div class="testimonial-slide text-left pr-4" data-index="0">
+                            <p class="text-[15px] lg:text-[17px] leading-relaxed text-slate-600">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                                when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Lorem Ipsum has been the industry's standard dummy text ever since.
+                            </p>
                             <div class="mt-4 flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" alt="Jane K." class="flex-shrink-0 w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover border-2 border-white shadow-md ring-1 ring-slate-200/50">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+                                     alt="Moana Smile" class="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover
+                                     border-2 border-white shadow-md ring-1 ring-slate-200/50">
                                 <div>
-                                    <p class="font-bold text-lg" style="color: #1A237E;">Jane K.</p>
-                                    <p class="text-sm mt-0.5" style="color: #444444;">Marketing Director, TechCo</p>
+                                    <p class="font-bold text-lg text-[#1A237E]">Moana Smile</p>
+                                    <p class="text-sm mt-0.5 text-[#444444]">CEO of Niwax, Jaipur, India</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 2 -->
-                        <div x-show="current === 1" x-transition:enter="transition ease-out duration-400" x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 -translate-x-full" class="absolute inset-0 text-left w-full pr-4" style="display: none;">
-                            <p class="leading-relaxed text-base lg:text-lg" style="color: #333333;">Professional, creative, and easy to work with. Our e-commerce platform launched smoothly and sales have grown since day one.</p>
+
+                        <!-- Témoignage 2 -->
+                        <div class="testimonial-slide text-left pr-4 hidden" data-index="1">
+                            <p class="text-[15px] lg:text-[17px] leading-relaxed text-slate-600">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                It has survived not only five centuries, but also the leap into electronic typesetting, 
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+                                sheets containing Lorem Ipsum passages.
+                            </p>
                             <div class="mt-4 flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop" alt="Mike R." class="flex-shrink-0 w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover border-2 border-white shadow-md ring-1 ring-slate-200/50">
+                                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=150&h=150&fit=crop"
+                                     alt="David M." class="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover
+                                     border-2 border-white shadow-md ring-1 ring-slate-200/50">
                                 <div>
-                                    <p class="font-bold text-lg" style="color: #1A237E;">Mike R.</p>
-                                    <p class="text-sm mt-0.5" style="color: #444444;">Founder, ShopFlow</p>
+                                    <p class="font-bold text-lg text-[#1A237E]">David M.</p>
+                                    <p class="text-sm mt-0.5 text-[#444444]">Head of Product, Finexa</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- Slide 3 -->
-                        <div x-show="current === 2" x-transition:enter="transition ease-out duration-400" x-transition:enter-start="opacity-0 translate-x-full" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 -translate-x-full" class="absolute inset-0 text-left w-full pr-4" style="display: none;">
-                            <p class="leading-relaxed text-base lg:text-lg" style="color: #333333;">Clear communication and a modern, fast website. We recommend AtlasTech Solutions to any business looking to level up their online presence.</p>
+
+                        <!-- Témoignage 3 -->
+                        <div class="testimonial-slide text-left pr-4 hidden" data-index="2">
+                            <p class="text-[15px] lg:text-[17px] leading-relaxed text-slate-600">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
+                                and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                            </p>
                             <div class="mt-4 flex items-center gap-4">
-                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="Sarah L." class="flex-shrink-0 w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover border-2 border-white shadow-md ring-1 ring-slate-200/50">
+                                <img src="<?= asset('assets/image01.jpeg') ?>"
+                                     alt="Emma R." class="w-16 h-16 lg:w-[72px] lg:h-[72px] rounded-full object-cover
+                                     border-2 border-white shadow-md ring-1 ring-slate-200/50">
                                 <div>
-                                    <p class="font-bold text-lg" style="color: #1A237E;">Sarah L.</p>
-                                    <p class="text-sm mt-0.5" style="color: #444444;">CEO, GreenStart</p>
+                                    <p class="font-bold text-lg text-[#1A237E]">Emma R.</p>
+                                    <p class="text-sm mt-0.5 text-[#444444]">Operations Manager, BrightHome</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Dots en bas à droite : actif = rose plein + contour rose, inactif = contour gris -->
+
+                    <!-- Dots de navigation -->
                     <div class="flex justify-end gap-3 mt-5 lg:mt-6">
-                        <button type="button" @click="current = 0" class="w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0" :class="current === 0 ? 'bg-[#E91E63] ring-2 ring-[#E91E63] ring-offset-2 scale-110' : 'bg-transparent border-2 border-slate-300 hover:border-slate-400'" aria-label="Slide 1"></button>
-                        <button type="button" @click="current = 1" class="w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0" :class="current === 1 ? 'bg-[#E91E63] ring-2 ring-[#E91E63] ring-offset-2 scale-110' : 'bg-transparent border-2 border-slate-300 hover:border-slate-400'" aria-label="Slide 2"></button>
-                        <button type="button" @click="current = 2" class="w-3 h-3 rounded-full transition-all duration-300 flex-shrink-0" :class="current === 2 ? 'bg-[#E91E63] ring-2 ring-[#E91E63] ring-offset-2 scale-110' : 'bg-transparent border-2 border-slate-300 hover:border-slate-400'" aria-label="Slide 3"></button>
+                        <button type="button" class="testimonial-dot w-3 h-3 rounded-full border-2 border-slate-300 hover:border-slate-400 transition-all duration-300 flex-shrink-0" data-target="0" aria-label="Client 1"></button>
+                        <button type="button" class="testimonial-dot w-3 h-3 rounded-full border-2 border-slate-300 hover:border-slate-400 transition-all duration-300 flex-shrink-0" data-target="1" aria-label="Client 2"></button>
+                        <button type="button" class="testimonial-dot w-3 h-3 rounded-full border-2 border-slate-300 hover:border-slate-400 transition-all duration-300 flex-shrink-0" data-target="2" aria-label="Client 3"></button>
                     </div>
                 </div>
             </div>

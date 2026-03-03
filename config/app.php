@@ -31,4 +31,10 @@ return [
         'client_secret' => 'EFQ-NwWOeIED4e1bZtT5xLQfkVZyhCboRRhgGisydNkwc3J-YFlS5AwMH1SD_iiCEwPY8oki8uuUS4ZJ',
         'sandbox' => true,
     ],
+    // Google reCAPTCHA v3 (invisible). Get keys: https://www.google.com/recaptcha/admin
+    'recaptcha' => [
+        'site_key' => '6LeBz34sAAAAAO3Dt29TksK9F9JpNaeQ-XhvPwqS',   // Public key for frontend (safe in HTML/JS)
+        'secret_key' => '6LeBz34sAAAAAGppXdXeBcXf6qfK290bZ9RdwXrL', // Secret key for server-side verification only
+        'min_score' => 0.5, // Reject if score below this (0.0 = bot, 1.0 = human)
+    ],
 ];
